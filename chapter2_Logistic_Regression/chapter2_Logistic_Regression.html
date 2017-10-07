@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Untitled</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>chapter2_Logistic_Regression</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -13,8 +11,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1109,7 +1107,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2538,7 +2535,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3029,7 +3025,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8760,6 +8755,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8962,8 +8960,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8986,6 +8990,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9122,6 +9136,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9211,6 +9228,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9255,6 +9275,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9551,6 +9574,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9571,11 +9595,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11246,7 +11265,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11558,6 +11577,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11571,6 +11591,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11631,8 +11654,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11643,9 +11668,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11770,7 +11797,8 @@ $$h(x)=P(y=1|x;\theta)$$</p>
 <h3 id="&#20195;&#20215;&#20989;&#25968;">&#20195;&#20215;&#20989;&#25968;<a class="anchor-link" href="#&#20195;&#20215;&#20989;&#25968;">&#182;</a></h3><p>如果采用和线性模型相同的代价函数
 $$J(\theta_0,\theta_1,...,\theta_n)=\frac1{2m}\displaystyle{\sum^m_{i=1}}(h(x^{(i)})-y^{(i)})^2$$</p>
 <p>但是逻辑回归中，h(x)的形式变了。如果沿用上述公式，将导致J()是一个非凸函数，不利于我们找最值。因此，代价函数也需要重新定义
-$$J(\theta)=\frac1m\displaystyle{\sum^m_{i=1}}Cost(h(x^{(i)}),y^{(i)})$$</p>
+$$J(\theta)=\frac1m\displaystyle{\sum^m_{i=1}}Cost(h(x^{(i)}),y^{(i)})$$<br>
+$$（注意之前的2m是因为求梯度求导时可以消去2，这里不用这样处理所以没有2）$$</p>
 <p>其中
 $$Cost(h(x),y)=\left\{
 \begin{aligned}
@@ -11785,7 +11813,7 @@ $$\theta_j=\theta_j-\alpha\frac{d}{d\theta_j}J(\theta)$$</p>
 <p>对J求导后得到（需要推到）
 $$\theta_j=\theta_j-\frac{\alpha}m\displaystyle{\sum_{i=1}^m}((h(x^{(i})-y^{(i)})x^{(i)}_j)$$</p>
 <hr>
-<h3 id="&#22810;&#20803;&#20998;&#31867;&#38382;&#39064;">&#22810;&#20803;&#20998;&#31867;&#38382;&#39064;<a class="anchor-link" href="#&#22810;&#20803;&#20998;&#31867;&#38382;&#39064;">&#182;</a></h3><p>（待续）</p>
+<h3 id="&#22810;&#20803;&#20998;&#31867;&#38382;&#39064;">&#22810;&#20803;&#20998;&#31867;&#38382;&#39064;<a class="anchor-link" href="#&#22810;&#20803;&#20998;&#31867;&#38382;&#39064;">&#182;</a></h3><p>由于逻辑回归只能处理2元分类的问题， 因此面对多元分类时需要采取一对多（One-vs-All）的方法，也就是对每一种情况将其他所有输出和该输出作为两种分类运行一遍逻辑回归，然后对所有情况都这样运行一遍</p>
 <hr>
 <h2 id="&#27491;&#21017;&#21270;">&#27491;&#21017;&#21270;<a class="anchor-link" href="#&#27491;&#21017;&#21270;">&#182;</a></h2><h3 id="&#36807;&#25311;&#21512;">&#36807;&#25311;&#21512;<a class="anchor-link" href="#&#36807;&#25311;&#21512;">&#182;</a></h3><p>拟合问题
 <img src="https://pic2.zhimg.com/c278dcb3c42ff6b9c7d914b85030d77d_r.jpg" alt="">
@@ -11793,9 +11821,21 @@ $$\theta_j=\theta_j-\frac{\alpha}m\displaystyle{\sum_{i=1}^m}((h(x^{(i})-y^{(i)}
 <p>欠拟合的解决方法是增加特征量</p>
 <p>过拟合的解决方法是减少特征量或者正则化</p>
 <hr>
-<h3 id="&#27491;&#21017;&#21270;&#20195;&#20215;&#20989;&#25968;">&#27491;&#21017;&#21270;&#20195;&#20215;&#20989;&#25968;<a class="anchor-link" href="#&#27491;&#21017;&#21270;&#20195;&#20215;&#20989;&#25968;">&#182;</a></h3>$$J(\theta)=\frac1{2m}\displaystyle{(\sum_{i=1}^m}(h(x^{(i})-y^{(i)})^2+\lambda\displaystyle{\sum_{j=1}^n\theta_j^2})$$<hr>
-<h3 id="&#32447;&#24615;&#22238;&#24402;&#30340;&#27491;&#21017;&#21270;">&#32447;&#24615;&#22238;&#24402;&#30340;&#27491;&#21017;&#21270;<a class="anchor-link" href="#&#32447;&#24615;&#22238;&#24402;&#30340;&#27491;&#21017;&#21270;">&#182;</a></h3><hr>
-<h3 id="&#36923;&#36753;&#22238;&#24402;&#30340;&#27491;&#21017;&#21270;">&#36923;&#36753;&#22238;&#24402;&#30340;&#27491;&#21017;&#21270;<a class="anchor-link" href="#&#36923;&#36753;&#22238;&#24402;&#30340;&#27491;&#21017;&#21270;">&#182;</a></h3><hr>
+<h3 id="&#27491;&#21017;&#21270;&#20195;&#20215;&#20989;&#25968;">&#27491;&#21017;&#21270;&#20195;&#20215;&#20989;&#25968;<a class="anchor-link" href="#&#27491;&#21017;&#21270;&#20195;&#20215;&#20989;&#25968;">&#182;</a></h3>$$J(\theta)=\frac1{2m}\displaystyle{(\sum_{i=1}^m}(h(x^{(i})-y^{(i)})^2+\lambda\displaystyle{\sum_{j=1}^n\theta_j^2})$$<p></p>
+<p>其中$\lambda$又叫做正则化参数（Regularization Parameter）。如果正则化参数太大，则会把所有参数最小化，导致近似直线，造成欠拟合</p>
+<hr>
+<h3 id="&#32447;&#24615;&#22238;&#24402;&#30340;&#27491;&#21017;&#21270;">&#32447;&#24615;&#22238;&#24402;&#30340;&#27491;&#21017;&#21270;<a class="anchor-link" href="#&#32447;&#24615;&#22238;&#24402;&#30340;&#27491;&#21017;&#21270;">&#182;</a></h3><p>代价函数
+$$J(\theta)=\frac1{2m}(\sum_{i=1}^{m}h(x^{(i)})-y^{(i)})^2+\lambda\sum_{j=1}^{n}\theta_j^2)$$</p>
+<hr>
+<h3 id="&#36923;&#36753;&#22238;&#24402;&#30340;&#27491;&#21017;&#21270;">&#36923;&#36753;&#22238;&#24402;&#30340;&#27491;&#21017;&#21270;<a class="anchor-link" href="#&#36923;&#36753;&#22238;&#24402;&#30340;&#27491;&#21017;&#21270;">&#182;</a></h3><p>代价函数
+$$J(\theta)=-[\frac1m\sum_{i=1}^my^ilog(h(x^{(i)}))+(1-y^{(i)})log(1-(h(x^{(i)})))]+\frac\lambda{2m}\sum_{j=1}^n\theta_j^2$$</p>
+<p>由此得到梯度（对应作业题），并对$\theta$进行批量更新
+$$\theta_0=\theta_0-\alpha\frac1m\sum_{i=1}^m((h(x^{(i)})-y^{(i)})x_0^{(i)})$$<br>
+$$\theta_j=\theta_j-\alpha(\frac1m\sum_{i=1}^m(h(x^{(i)})-y^{(i)})x_j^{(i)}+\frac{\lambda}m\theta_j)\ ,\quad for\ j = 1, 2, \dots, n$$</p>
+<hr>
+<h3 id="&#20316;&#19994;&#39064;&#20998;&#26512;">&#20316;&#19994;&#39064;&#20998;&#26512;<a class="anchor-link" href="#&#20316;&#19994;&#39064;&#20998;&#26512;">&#182;</a></h3><p><img src="http://ww2.sinaimg.cn/large/0060lm7Tly1fk9xa5y4d5j30oo05h3zr.jpg" alt="逻辑回归代价函数的正则化"></p>
+<p>逻辑回归代价函数的正则化，先计算代价函数，然后是梯度</p>
+<hr>
 <h3 id="&#21442;&#32771;">&#21442;&#32771;<a class="anchor-link" href="#&#21442;&#32771;">&#182;</a></h3><p>[1]. <a href="http://www.yalewoo.com/andrew_ng_machine_learning_notes_3_logistic_regression_and_regularization.html">Andrew Ng机器学习课程笔记3——逻辑回归和正则化</a></p>
 <p>[2]. <a href="http://www.cnblogs.com/python27/p/MachineLearningWeek03.html">机器学习公开课笔记(3)：Logistic回归</a></p>
 <p>[3]. <a href="https://zhuanlan.zhihu.com/p/21378251">第三周笔记：逻辑回归及正则化</a></p>
@@ -11803,7 +11843,24 @@ $$\theta_j=\theta_j-\frac{\alpha}m\displaystyle{\sum_{i=1}^m}((h(x^{(i})-y^{(i)}
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
     </div>
   </div>
 </body>
+
+ 
+
+
 </html>
